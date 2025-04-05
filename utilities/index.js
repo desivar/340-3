@@ -9,7 +9,6 @@ const invController = require("../controllers/invController")
 
 
 
-
 /* **************************************
 * Build the classification view HTML
 * ************************************ */
