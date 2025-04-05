@@ -10,7 +10,7 @@ app.use(expressLayouts);
 app.set("layout", "./layouts/layout");
 
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use("/inv", inventoryRoute)
 
 
 /* ***********************
