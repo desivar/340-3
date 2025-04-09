@@ -7,6 +7,8 @@ const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute"); // Import your inventory route
 const path = require("path");
 
+const baseController = require("./controllers/baseController")
+
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts/layout");
@@ -18,7 +20,8 @@ app.use("/inv", inventoryRoute);
 /* ***********************
  * Routes
  *************************/
-
+//ndexRoute
+app.get("/", baseController.buildHome);
 
 
 // Define the messages function HERE, before the routes.
