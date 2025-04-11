@@ -1,5 +1,4 @@
-const invModel = require("../models/inventory-model")
-const utilities = require("../utilities/")
+require("../utilities/")
 
 const invCont = {}
 
@@ -19,4 +18,5 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
-module.exports = invCont
+module.exports = invContconst invModel = require("../models/inventory-model")
+const utilities = re
