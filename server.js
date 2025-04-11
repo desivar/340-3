@@ -18,7 +18,7 @@ const inventoryRoute = require("./routes/inventoryRoute");
 app.use(static);
 
 // Add the inventory routes
-app.use("/inv", inventoryRoute);
+app.use("/inv", inventoryRoute); // Removed the duplicate line
 
 /* ***********************
  * Local Server Information
@@ -33,6 +33,3 @@ const host = process.env.HOST;
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`);
 });
-
-// Inventory routes
-app.use("/inv", inventoryRoute)
