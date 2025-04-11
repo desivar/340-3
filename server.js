@@ -20,9 +20,9 @@ app.use(static);
 // Add the inventory routes
 app.use("/inv", inventoryRoute);
 
-// Add the root route
+// Add the root route - Corrected to render index.ejs
 app.get("/", (req, res) => {
-  res.send("Welcome to my application!"); // Or res.render("index") if you have a view
+  res.render("index"); // Render the index.ejs file
 });
 
 /* ***********************
