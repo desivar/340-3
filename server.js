@@ -1,28 +1,24 @@
-
-
 /* ******************************************
- * This server.js file is the primary file of the 
+ * This server.js file is the primary file of the
  * application. It is used to control the project.
  *******************************************/
 /* ***********************
  * Require Statements
  *************************/
 const express = require("express");
+const env = require("dotenv").config();
 const app = express();
 const static = require("./routes/static");
-const inventoryRoute = require("./routes/inventoryRoute"); // Import inventoryRoute
+// Add the inventory route import.
+const inventoryRoute = require("./routes/inventoryRoute");
 
 /* ***********************
  * Routes
  *************************/
-app.get("/", (req, res) => {
-  res.render("index", { title: "Home" }); // Corrected to res.render()
-});
-
 app.use(static);
 
-// Inventory routes
-app.use("/inv", inventoryRoute); // Use inventoryRoute
+// Add the inventory routes
+app.use("/inv", inventoryRoute);
 
 /* ***********************
  * Local Server Information
