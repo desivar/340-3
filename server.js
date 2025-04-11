@@ -11,6 +11,8 @@ const express = require("express")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
+const router = new express.Router() 
+const invController = require("../controllers/invController")
 
 /* ***********************
  * Routes
@@ -19,6 +21,8 @@ app.get("/", (req, res) => {
     resizeTo.render("index", { title: "Home" })
 })
 app.use(static)
+// Inventory routes
+app.use("/inv", inventoryRoute)
 
 /* ***********************
  * Local Server Information
