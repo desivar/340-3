@@ -1,3 +1,5 @@
+const Util = {}; // Define Util
+
 /* **************************************
  * Build the classification view HTML
  * ************************************ */
@@ -24,4 +26,4 @@ Util.buildClassificationGrid = async function(data) {
   return grid;
 };
 
-module.exports = Util; // Assuming Util is defined elsewhere in this file
+module.exports = Util; // Export Util
