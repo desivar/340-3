@@ -18,7 +18,12 @@ const inventoryRoute = require("./routes/inventoryRoute");
 app.use(static);
 
 // Add the inventory routes
-app.use("/inv", inventoryRoute); // Removed the duplicate line
+app.use("/inv", inventoryRoute);
+
+// Add the root route
+app.get("/", (req, res) => {
+  res.send("Welcome to my application!"); // Or res.render("index") if you have a view
+});
 
 /* ***********************
  * Local Server Information
