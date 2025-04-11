@@ -5,45 +5,43 @@
 /* ***********************
  * Require Statements
  *************************/
+// Load environment variables
+require("dotenv").config();
+
 const express = require("express");
-const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config();
+const expressLayouts = require("express-ejs-layouts");
+
 const app = express();
-const static = require("./routes/static");
-// Add the inventory route import.
-const inventoryRoute = require("./routes/inventoryRoute");
 
+// Import routes
+const staticRoutes = require("./routes/static");
+const inventoryRoutes = require("./routes/inventoryRoute");
 
-/* ***********************
- * View Engine and Template
- *************************/
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout")
+// Set the view engine to EJS and configure layouts
+app.set("view engine", "ejs");
+app.use(expressLayouts);
+app.set("layout", "./layouts/layout");
+
+// Serve static files (if you have a public folder)
+app.use(express.static("public"));
 
 /* ***********************
  * Routes
  *************************/
-app.use(static);
+app.use("/", staticRoutes);             // Static pages
+app.use("/inv", inventoryRoutes);       // Inventory-related routes
 
-// Add the inventory routes
-app.use("/inv", inventoryRoute);
-
-// Add the root route - Corrected to render index.ejs
+// Root route - render index.ejs
 app.get("/", (req, res) => {
-  res.render("index"); // Render the index.ejs file
+  res.render("index"); // Make sure views/index.ejs exists
 });
 
 /* ***********************
- * Local Server Information
- * Values from .env (environment) file
+ * Server Configuration
  *************************/
-const port = process.env.PORT;
-const host = process.env.HOST;
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || "localhost";
 
-/* ***********************
- * Log statement to confirm server operation
- *************************/
-app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`);
+app.listen(PORT, () => {
+  console.log(`✅ Server running at http://${HOST}:${PORT}`);
 });
