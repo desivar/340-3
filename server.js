@@ -12,7 +12,7 @@ const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 const router = new express.Router() 
-const invController = require("../controllers/invController")
+const invController = require("./controllers/invController")
 
 /* ***********************
  * Routes
