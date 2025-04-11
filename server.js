@@ -22,6 +22,12 @@ app.get("/", (req, res) => {
 })
 app.use(static)
 // Inventory routes
+
+//index route
+app.get("/", (req, res) => {
+    res.render("index", { title: "Home" })
+})
+
 app.use("/inv", inventoryRoute)
 
 /* ***********************
